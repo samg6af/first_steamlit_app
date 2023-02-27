@@ -1,3 +1,5 @@
+# Lesson 3
+
 import streamlit
 streamlit.title('My Parents New Healthy Diner')
 streamlit.header('Breakfast Favorites')
@@ -15,5 +17,12 @@ my_fruit_list = my_fruit_list.set_index('Fruit')
 fruits_selected = streamlit.multiselect("Pick some fruits;", list(my_fruit_list.index),['Avocado','Strawberries'])
 fruits_to_show = my_fruit_list.loc[fruits_selected]
 
-#Display the table on the page
+# Display the table on the page
 streamlit.dataframe(fruits_to_show)
+
+# Lesson 9
+
+# New Section to display Fruityvice API response
+import requests
+fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
+streamlit.text(fruityvice_response)
